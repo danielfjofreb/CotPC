@@ -33,9 +33,9 @@
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                         <li><asp:Hyperlink ID="HPLAdd" runat="server" CssClass="smoothScroll" Enabled="True" NavigateUrl="~/Buscar.aspx">Busca tus componentes</asp:Hyperlink></li>
-                         <li><asp:HyperLink ID="HPLBuscar" runat="server" CssClass="smoothScroll" Enabled="True" NavigateUrl="~/Buscar.aspx">Compara</asp:HyperLink></li>
-                         <li><asp:HyperLink ID="HPLActElim" runat="server" CssClass="smoothScroll" Enabled="True" NavigateUrl="~/Editar.aspx">Combinaciones predefinidas</asp:HyperLink></li>
+                         <li><a href="Comenzar.aspx" class="smoothScroll">Comienza a armar!</a></li>
+                         <li><a href="#feature" class="smoothScroll">Compara</a></li>
+                         <li><a href="#about" class="smoothScroll">Combinaciones predefinidas</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                          

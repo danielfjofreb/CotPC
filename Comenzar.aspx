@@ -48,6 +48,10 @@
         .txtAzure{
             color:azure;
         }
+        .ddl{
+            padding-left:2%;
+            width:320px;
+        }
         </style>
 </head>
 <body>
@@ -69,9 +73,9 @@
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                         <li><asp:Hyperlink ID="HPLAdd" runat="server" CssClass="smoothScroll" Enabled="False" NavigateUrl="~/Comenzar.aspx">Busca tus componentes</asp:Hyperlink></li>
-                         <li><asp:HyperLink ID="HPLBuscar" runat="server" CssClass="smoothScroll" Enabled="False" NavigateUrl="~/Buscar.aspx">Compara</asp:HyperLink></li>
-                         <li><asp:HyperLink ID="HPLActElim" runat="server" CssClass="smoothScroll" Enabled="False" NavigateUrl="~/Editar.aspx">Combinaciones predefinidas</asp:HyperLink></li>
+                         <li><a href="Comenzar.aspx" class="smoothScroll">Comienza a armar!</a></li>
+                         <li><a href="#feature" class="smoothScroll">Compara</a></li>
+                         <li><a href="#about" class="smoothScroll">Combinaciones predefinidas</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                          
@@ -108,7 +112,7 @@
                         <b>Procesador (CPU)</b>
 					    <span>CAMPO OBLIGATORIO</span>              		
                     </h4>
-                    <asp:DropDownList ID="ddlProcesador" runat="server">
+                    <asp:DropDownList ID="ddlProcesador" runat="server" CssClass="ddl">
                         <asp:ListItem Value="-1">Seleccione su procesador</asp:ListItem>
                     </asp:DropDownList>
 
@@ -116,36 +120,64 @@
                         <b>Placa Madre</b> 
 					    <span>CAMPO OBLIGATORIO</span>              		
                     </h4>
-                    <asp:DropDownList ID="ddlPlacaMadre" runat="server">
+                    <asp:DropDownList ID="ddlPlacaMadre" runat="server" CssClass="ddl">
                         <asp:ListItem Value="-1">Seleccione su placa madre</asp:ListItem>
                     </asp:DropDownList>
                     <h4>
                         <b>Memoria RAM 1</b> 
 					    <span>CAMPO OBLIGATORIO</span>              		
                     </h4>
-                    <asp:DropDownList ID="ddlRAM1" runat="server">
+                    <asp:DropDownList ID="ddlRAM1" runat="server" CssClass="ddl">
                         <asp:ListItem Value="-1">Seleccione 1ra RAM</asp:ListItem>
                     </asp:DropDownList>
                     <h4>
                         <b>Memoria RAM 2</b> 
 					    <span>(OPCIONAL)</span>              		
                     </h4>
-                    <asp:DropDownList ID="ddlRAM2" runat="server">
+                    <asp:DropDownList ID="ddlRAM2" runat="server" CssClass="ddl">
                         <asp:ListItem Value="-1">Seleccione 2da RAM</asp:ListItem>
                     </asp:DropDownList>
                     <h4>
                         <b>Tarjeta Gráfica</b> 
 					    <asp:Label ID="lblGrafica" runat="server" CssClass="espan" Text="CAMPO OBLIGATORIO"></asp:Label>
                     </h4>
-                    <asp:DropDownList ID="ddlGrafica" runat="server">
+                    <asp:DropDownList ID="ddlGrafica" runat="server" CssClass="ddl">
                         <asp:ListItem Value="-1">Seleccione Tarjeta Gráfica</asp:ListItem>
                     </asp:DropDownList>
                     <h4>
                         <b>Tarjeta de Red</b> 
 					    <span>(OPCIONAL)</span> 
                     </h4>
-                    <asp:DropDownList ID="ddlRed" runat="server">
+                    <asp:DropDownList ID="ddlRed" runat="server" CssClass="ddl">
                         <asp:ListItem Value="-1">Seleccione Tarjeta de Red</asp:ListItem>
+                    </asp:DropDownList>
+
+                    <h4>
+                        <b>Almacenamiento 1</b> 
+					    <span>OBLIGATORIO</span> 
+                    </h4>
+                    <div class ="arma_intel">
+                        <asp:CheckBox ID="chkSSD1" runat="server" Text="SSD" ValidationGroup="TipoAlmacenamiento1" />
+                    </div>
+                    <div class ="arma_AMD">
+                        <asp:CheckBox ID="chkHDD1" runat="server" Text="HDD" ValidationGroup="TipoAlmacenamiento1"/>
+                    </div>
+                    <asp:DropDownList ID="ddlAlmacenamiento1" runat="server" CssClass="ddl">
+                        <asp:ListItem Value="-1">Seleccione Unidad</asp:ListItem>
+                    </asp:DropDownList>
+
+                    <h4>
+                        <b>Almacenamiento 2</b> 
+					    <span>(OPCIONAL)</span> 
+                    </h4>
+                    <div class ="arma_intel">
+                        <asp:CheckBox ID="chkSSD2" runat="server" Text="SSD" ValidationGroup="TipoAlmacenamiento2" />
+                    </div>
+                    <div class ="arma_AMD">
+                        <asp:CheckBox ID="chkHDD2" runat="server" Text="HDD" ValidationGroup="TipoAlmacenamiento2"/>
+                    </div>
+                    <asp:DropDownList ID="ddlAlmacenamiento2" runat="server" CssClass="ddl">
+                        <asp:ListItem Value="-1">Seleccione Unidad</asp:ListItem>
                     </asp:DropDownList>
                 </div>  
         </div>
