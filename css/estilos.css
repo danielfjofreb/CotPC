@@ -1,0 +1,34 @@
+
+
+
+#tabla1 {
+float: left;
+width: 600px;
+}
+
+#tabla1 table {
+text-align:left;
+}
+
+#tabla1 table tr td {
+width: 150px
+}
+
+#tabla2 {
+float: left;
+width: 600px;
+}
+
+
+#tabla2 table {
+text-align: left;
+}
+
+#tabla2 table tr td {
+width: 150px
+}
+
+.color2{
+    color:#2ce8a2;
+}
+
