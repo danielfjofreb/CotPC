@@ -30,7 +30,13 @@
             color:firebrick;
             font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans";
             font-size: 10px;
-            text-align: left;
+            text-align: right;
+        }
+        .espan{
+            color:firebrick;
+            font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans";
+            font-size: 10px;
+            text-align: right;
         }
         .arma_amd {
         cursor: pointer;
@@ -99,13 +105,47 @@
             <div class="container">
                 <div class="col-md-offset-3 col-md-6 col-sm-12">
                     <h4>
-                        <b>Procesador (CPU)</b> 
+                        <b>Procesador (CPU)</b>
 					    <span>CAMPO OBLIGATORIO</span>              		
                     </h4>
-                    <asp:DropDownList ID="DropDownList1" runat="server">
-                        
+                    <asp:DropDownList ID="ddlProcesador" runat="server">
                         <asp:ListItem Value="-1">Seleccione su procesador</asp:ListItem>
-                        
+                    </asp:DropDownList>
+
+                    <h4>
+                        <b>Placa Madre</b> 
+					    <span>CAMPO OBLIGATORIO</span>              		
+                    </h4>
+                    <asp:DropDownList ID="ddlPlacaMadre" runat="server">
+                        <asp:ListItem Value="-1">Seleccione su placa madre</asp:ListItem>
+                    </asp:DropDownList>
+                    <h4>
+                        <b>Memoria RAM 1</b> 
+					    <span>CAMPO OBLIGATORIO</span>              		
+                    </h4>
+                    <asp:DropDownList ID="ddlRAM1" runat="server">
+                        <asp:ListItem Value="-1">Seleccione 1ra RAM</asp:ListItem>
+                    </asp:DropDownList>
+                    <h4>
+                        <b>Memoria RAM 2</b> 
+					    <span>(OPCIONAL)</span>              		
+                    </h4>
+                    <asp:DropDownList ID="ddlRAM2" runat="server">
+                        <asp:ListItem Value="-1">Seleccione 2da RAM</asp:ListItem>
+                    </asp:DropDownList>
+                    <h4>
+                        <b>Tarjeta Gráfica</b> 
+					    <asp:Label ID="lblGrafica" runat="server" CssClass="espan" Text="CAMPO OBLIGATORIO"></asp:Label>
+                    </h4>
+                    <asp:DropDownList ID="ddlGrafica" runat="server">
+                        <asp:ListItem Value="-1">Seleccione Tarjeta Gráfica</asp:ListItem>
+                    </asp:DropDownList>
+                    <h4>
+                        <b>Tarjeta de Red</b> 
+					    <span>(OPCIONAL)</span> 
+                    </h4>
+                    <asp:DropDownList ID="ddlRed" runat="server">
+                        <asp:ListItem Value="-1">Seleccione Tarjeta de Red</asp:ListItem>
                     </asp:DropDownList>
                 </div>  
         </div>
