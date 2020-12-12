@@ -41,7 +41,7 @@
             <asp:Label ID="Label2" runat="server" Text="Seleccione: "></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:DropDownList ID="DropDownList1" runat="server" CssClass="auto-style1" Height="16px" Width="391px" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                <asp:ListItem>---Seleccione---</asp:ListItem>
+                <asp:ListItem Value="">---Seleccione---</asp:ListItem>
                 <asp:ListItem>Procesador</asp:ListItem>
                 <asp:ListItem>Placa</asp:ListItem>
                 <asp:ListItem>Tarjeta de Video</asp:ListItem>
@@ -267,6 +267,97 @@
                 
             </asp:Panel>
 
+            <!--Tarjeta de video-->
+            <asp:Panel ID="pnlTarjetaVideo" runat="server" Visible="false">
+                
+                 <div class="auto-style3">
+
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <br />
+                     <br />
+                     <br />
+
+                     <asp:Image ID="imgGPU" runat="server" CssClass="auto-style4" Height="397px" />
+                     <br />
+                     <asp:FileUpload ID="FUGPU" accept="image/*" runat="server" onchange="mostrarGPU()" ForeColor="Black"/>
+                     <br />
+                </div>
+                <div class="auto-style2">
+                    &nbsp;&nbsp;&nbsp;
+                <asp:Label ID="Label16" runat="server" Text="Nombre del Producto: "></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="txtNombreProductoGPU" runat="server" Width="277px" required></asp:TextBox>
+                <br />
+                <br />
+                    &nbsp;&nbsp;&nbsp;
+                <asp:Label ID="Label17" runat="server" Text="Marca: "></asp:Label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+                    <asp:TextBox ID="txtMarcaGPU" runat="server" Width="274px"></asp:TextBox>
+                    <br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label19" runat="server" Text="Modelo:"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="txtModeloGPU" runat="server" Width="277px" required></asp:TextBox>
+                <br />
+                
+                <br />
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label36" runat="server" Text="TDP GPU (w):"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtTDPGPU" runat="server" required="" Width="277px" min="0" TextMode="Number"></asp:TextBox>
+                    <br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label39" runat="server" Text="Medida (mm²)"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                    <asp:TextBox ID="txtMedidaGPU" runat="server" min="0" required="" TextMode="Number" Width="277px"></asp:TextBox>
+                    <br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label41" runat="server" Text="VRAM (Gb)"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtVRAM" runat="server" min="0" required="" TextMode="Number" Width="277px"></asp:TextBox>
+                    <br />
+                    <br />
+                    &nbsp;&nbsp;
+                    <asp:Label ID="LabeltipoVRAM" runat="server" Text="Tipo VRAM"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                    <asp:DropDownList ID="ddlTipoVRAM" runat="server" Height="16px" Width="283px" required>
+                        <asp:ListItem Value="">---Seleccione---</asp:ListItem>
+                        <asp:ListItem>GDDR</asp:ListItem>
+                        <asp:ListItem>GDDR2</asp:ListItem>
+                        <asp:ListItem>GDDR3</asp:ListItem>
+                        <asp:ListItem>GDDR4</asp:ListItem>
+                        <asp:ListItem>GDDR5</asp:ListItem>
+                        <asp:ListItem>GDDR5X</asp:ListItem>
+                        <asp:ListItem>GDDR6</asp:ListItem>
+                        <asp:ListItem>HBM</asp:ListItem>
+                    </asp:DropDownList>
+                    <br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label40" runat="server" Text="Fuente de Poder&lt;br&gt;  &amp;nbsp;&amp;nbsp;&amp;nbsp;Recomendada"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<asp:TextBox ID="txtPSURecomendadaGPU" runat="server" required="" Width="277px"></asp:TextBox>
+                    <br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label37" runat="server" Text="Conectores de&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; Alimentación:"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:TextBox ID="txtconAlGPU" runat="server" required="" Width="277px"></asp:TextBox>
+                    <br />
+                    <br />
+                    &nbsp;&nbsp;
+                    <asp:Label ID="Label38" runat="server" Text="Precio:"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+                    <asp:TextBox ID="txtPrecioGPU" runat="server" min="0" required="" TextMode="Number" Width="277px"></asp:TextBox>
+                <br />
+                <br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnIngresarGPU" runat="server" OnClick="btnIngresarGPU_Click" OnClientClick="return confirm ('¿Los campos son correctos?');" Text="Ingresar" />
+                <br />
+                    </div>
+            </asp:Panel>
+
         </div>
     </form>
 </body>
@@ -308,6 +399,22 @@
             reader.readAsDataURL(archivo);
             reader.onloadend = function () {
                 document.getElementById("imgPl").src = reader.result;
+            }
+        }
+    }
+
+    function mostrarGPU() {
+        var archivo = document.getElementById("FUGPU").files[0];
+        if (!(/\.(jpg|jpeg|ico|svgz|avif|bmp|svg|png|gif)$/i).test(archivo.name)) {
+            alert('El archivo a adjuntar no es una imagen');
+            limpiarImagen(document.getElementById("FUGPU"));
+            return;
+        }
+        var reader = new FileReader();
+        if (FUGPU) {
+            reader.readAsDataURL(archivo);
+            reader.onloadend = function () {
+                document.getElementById("imgGPU").src = reader.result;
             }
         }
     }

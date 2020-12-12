@@ -39,16 +39,48 @@ namespace CotPc
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (DropDownList1.SelectedItem.Value.Equals("Procesador"))
+            switch (DropDownList1.SelectedItem.Value)
+            {
+                case "Procesador":
+                    pnlProcesador.Visible = true;
+                    pnlPlaca.Visible = false;
+                    pnlTarjetaVideo.Visible = false;
+                    break;
+                case "Placa":
+                    pnlProcesador.Visible = false;
+                    pnlPlaca.Visible = true;
+                    pnlTarjetaVideo.Visible = false;
+                    break;
+                case "Tarjeta de Video":
+                    pnlProcesador.Visible = false;
+                    pnlPlaca.Visible = false;
+                    pnlTarjetaVideo.Visible = true;
+                    break;
+                default:
+                    pnlProcesador.Visible = false;
+                    pnlPlaca.Visible = false;
+                    pnlTarjetaVideo.Visible = false;
+                    break;
+            }
+            
+            /*if (DropDownList1.SelectedItem.Value.Equals("Procesador"))
             {
                 pnlProcesador.Visible = true;
                 pnlPlaca.Visible = false;
+                pnlTarjetaVideo.Visible = false;
             }
             if (DropDownList1.SelectedItem.Value.Equals("Placa"))
             {
                 pnlProcesador.Visible = false;
                 pnlPlaca.Visible = true;
+                pnlTarjetaVideo.Visible = false;
             }
+            if (DropDownList1.SelectedItem.Value.Equals("Tarjeta de Video"))
+            {
+                pnlProcesador.Visible = false;
+                pnlPlaca.Visible = false;
+                pnlTarjetaVideo.Visible = true;
+            }*/
         }
 
         protected void btnIngresarPr_Click(object sender, EventArgs e)
@@ -217,6 +249,71 @@ namespace CotPc
             }
         }
 
-        
+        protected void btnIngresarGPU_Click(object sender, EventArgs e)
+        {
+            byte[] ImagenOriginal = null;
+            if (FUGPU.HasFile)
+            {
+                ImagenOriginal = FUGPU.FileBytes;
+
+                if (RegistrarGPU(txtMarcaGPU.Text,txtModeloGPU.Text,int.Parse(txtTDPGPU.Text),int.Parse(txtMedidaGPU.Text), int.Parse(txtVRAM.Text),ddlTipoVRAM.Text, txtPSURecomendadaGPU.Text.Trim(),txtconAlGPU.Text.Trim(),txtNombreProductoGPU.Text.Trim(),txtPrecioGPU.Text,ImagenOriginal))
+                {
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "alert", "alert('Producto Registrado! (Con imagen incluida)')", true);
+                }
+
+            }
+            else
+            {
+                if (RegistrarGPU(txtMarcaGPU.Text, txtModeloGPU.Text, int.Parse(txtTDPGPU.Text), int.Parse(txtMedidaGPU.Text), int.Parse(txtVRAM.Text), ddlTipoVRAM.Text, txtPSURecomendadaGPU.Text.Trim(), txtconAlGPU.Text.Trim(), txtNombreProductoGPU.Text.Trim(), txtPrecioGPU.Text, ImagenOriginal))
+                {
+                    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "alert", "alert('Producto Registrado!')", true);
+                }
+            }
+        }
+
+
+        public bool RegistrarGPU(string marca, string modelo, int tdpGPU, int medidasmm, int VRAM, string TipoVRAM, string PSURecomendada, string conAGPU, string nombreProd, string precio, byte[] img)
+        {
+            try
+            {
+                string s = System.Configuration.ConfigurationManager.ConnectionStrings["cadenaconexion"].ConnectionString;
+                string query;
+                if (img != null)
+                {
+                    query = "exec insertarGPU @marca, @modelo, @tdpGPU, @medidasmm, @VRAM, @TipoVRAM, @PSURecomendada, @conAGPU, @nombreProd, @precio, @Imagen";
+                }
+                else
+                {
+                    query = "exec insertarGPU @marca, @modelo, @tdpGPU, @medidasmm, @VRAM, @TipoVRAM, @PSURecomendada, @conAGPU, @nombreProd, @precio, null";
+                }
+
+
+                SqlConnection conexion = new SqlConnection(s);
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("@marca", marca);
+                cmd.Parameters.AddWithValue("@modelo", modelo);
+                cmd.Parameters.AddWithValue("@tdpGPU", tdpGPU);
+                cmd.Parameters.AddWithValue("@medidasmm", medidasmm);
+                cmd.Parameters.AddWithValue("@VRAM", VRAM);
+                cmd.Parameters.AddWithValue("@TipoVRAM", TipoVRAM);
+                cmd.Parameters.AddWithValue("@PSURecomendada", PSURecomendada);
+                cmd.Parameters.AddWithValue("@conAGPU", conAGPU);
+                cmd.Parameters.AddWithValue("@nombreProd", nombreProd);
+                cmd.Parameters.AddWithValue("@precio", precio);
+                if (img != null)
+                {
+                    cmd.Parameters.AddWithValue("@Imagen", img);
+                }
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+                return true;
+            }
+            catch (SqlException e)
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "alert", "alert('Ha habido un error al ingresar la tarjeta de video, comuniquese con el administrador<br>\n" + e + "')", true);
+                return false;
+            }
+        }
     }
 }
