@@ -10,6 +10,13 @@ width: 600px;
 text-align:left;
 }
 
+.carousel-inner img{
+  height: 100px;
+  width : 100px;
+}
+
+
+
 #tabla1 table tr td {
 width: 150px
 }

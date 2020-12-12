@@ -5,15 +5,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
      <link rel="stylesheet" href="css/owl.theme.default.min.css"/>
      <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/estilos.css"/>
     <link rel="stylesheet" href="css/tooplate-style.css"/>
     <style type="text/css">
-        .auto-style1 {
-            margin-left: 1287px;
-            color:#dbdbdb;
-        }
         .arma_centro_top {
             float: left;
             width: 100%;
@@ -179,8 +176,54 @@
                     <asp:DropDownList ID="ddlAlmacenamiento2" runat="server" CssClass="ddl">
                         <asp:ListItem Value="-1">Seleccione Unidad</asp:ListItem>
                     </asp:DropDownList>
-                </div>  
+
+                    <h4>
+                        <b>Unidad Óptica</b> 
+					    <span>(OPCIONAL)</span> 
+                    </h4>
+                    <asp:DropDownList ID="ddlLectorDiscos" runat="server" CssClass="ddl">
+                        <asp:ListItem Value="-1">Seleccione Unidad Optica</asp:ListItem>
+                    </asp:DropDownList>
+
+                    <h4>
+                        <b>Gabinete</b> 
+					    <span>OBLIGATORIO</span> 
+                    </h4>
+                    <!-- CARRUSEL -->
+                    <div class="crs">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                      <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                      </ol>
+                      <div class="carousel-inner">
+                        <div class="item active">
+                            <asp:ImageButton ID="imgbtnGabinete" runat="server" ImageUrl="Images/1.jpg" CssClass="carousel-inner" Height="200px"/>
+                        </div>
+                        <div class="item">
+                          <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="Images/2.jpg" CssClass="carousel-inner" Height="200px"/>
+                        </div>
+                        <div class="item">
+                          <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="Images/3.jpg" CssClass="carousel-inner" Height="200px"/>
+                        </div>
+                        <div class="item">
+                          <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="Images/4.jpg" CssClass="carousel-inner" Height="200px"/>
+                        </div>
+                      </div>
+                      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                      </a>
+                      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                      </a>
+                      </div>
+
         </div>
+             </div>  
+        </div>
+
         </asp:Panel>
         
     </form>
@@ -192,4 +235,8 @@
         </div>
     </footer>
 </body>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="Scripts/jquery-3.5.1.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </html>
