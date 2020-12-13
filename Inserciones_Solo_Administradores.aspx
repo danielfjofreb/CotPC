@@ -8,16 +8,21 @@
     <title></title>
     <style type="text/css">
         .auto-style2 {
-            width: 853px;
+            width: 700px;
         }
         .auto-style3 {
-            width:40%;
+            width:50%;
             float: right;
             
         }
         .auto-style4 {
             bottom:40%;
             align-content:center;
+            min-height: 400px;
+            min-width: 400px;
+            max-height: 500px;
+            max-width: 500px;
+
         }
         .auto-style5 {
             height: 82px;
@@ -62,7 +67,7 @@
                      <br />
                      <br />
 
-                     <asp:Image ID="imgPr" runat="server" CssClass="auto-style4" Height="397px" />
+                     <asp:Image ID="imgPr" runat="server" CssClass="auto-style4" />
                      <br />
                      <asp:FileUpload ID="FUProcesador" accept="image/*" runat="server" onchange="mostrarPr()" ForeColor="Black"/>
                      <br />
@@ -372,12 +377,12 @@
             return;
         }
         var reader = new FileReader();
-        if (EUProcesador) {
+        if (FUProcesador) {
             reader.readAsDataURL(archivo);
             reader.onloadend = function () {
-            document.getElementById("imgPr").src = reader.result;
+                document.getElementById("imgPr").src = reader.result;
             }
-         }
+        }
     }
     function limpiarImagen(ctrl) {
         try {
