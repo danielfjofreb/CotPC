@@ -160,7 +160,7 @@
                      <br />
                      <br />
 
-                     <asp:Image ID="imgPr" runat="server" CssClass="auto-style4" />
+                     <asp:Image ID="imgPr" runat="server" CssClass="auto-style4"  />
                      <br />
                      <asp:FileUpload ID="FUProcesador" accept="image/*" runat="server" onchange="mostrar(this.id, document.getElementById('imgPr').id)" ForeColor="Black"/>
                      <br />
@@ -169,7 +169,7 @@
                     &nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label3" runat="server" Text="Nombre del Producto: "></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtNombreProductoPr" runat="server" Width="277px" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
+                <asp:TextBox ID="txtNombreProductoPr" runat="server" onkeypress="return(event.charCode != 209 && event.charCode != 241 && event.charCode != 64)" Width="277px" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
                 <br />
                 <br />
                     &nbsp;&nbsp;&nbsp;
@@ -274,7 +274,7 @@
                     &nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label11" runat="server" Text="Nombre del Producto: "></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtNombreProductoPl" runat="server" Width="277px" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
+                <asp:TextBox ID="txtNombreProductoPl" onkeypress="return(event.charCode != 209 && event.charCode != 241 && event.charCode != 64)" runat="server" Width="277px" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
                 <br />
                 <br />
                     &nbsp; &nbsp;
@@ -384,7 +384,7 @@
                     &nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label16" runat="server" Text="Nombre del Producto: "></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtNombreProductoGPU" runat="server" onchange="sinEspacios(this.value, this.id)" Width="277px" required></asp:TextBox>
+                <asp:TextBox ID="txtNombreProductoGPU"  onkeypress="return(event.charCode != 209 && event.charCode != 241 && event.charCode != 64)" runat="server" onchange="sinEspacios(this.value, this.id)" Width="277px" required></asp:TextBox>
                 <br />
                 <br />
                     &nbsp;&nbsp;&nbsp;
@@ -475,7 +475,7 @@
                     &nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label20" runat="server" Text="Nombre del Producto: "></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtNombreProductoFP" onchange="sinEspacios(this.value, this.id)" runat="server" Width="277px" required></asp:TextBox>
+                <asp:TextBox ID="txtNombreProductoFP" onkeypress="return(event.charCode != 209 && event.charCode != 241 && event.charCode != 64)" onchange="sinEspacios(this.value, this.id)" runat="server" Width="277px" required></asp:TextBox>
                 <br />
                 <br />
                     &nbsp;&nbsp;&nbsp;
@@ -555,7 +555,7 @@
                     &nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label42" runat="server" Text="Nombre del Producto: "></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtNombreProductoRAM" runat="server" Width="277px" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
+                <asp:TextBox ID="txtNombreProductoRAM" onkeypress="return(event.charCode != 209 && event.charCode != 241 && event.charCode != 64)" runat="server" Width="277px" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
                     <br />
                     <br />
                     &nbsp;&nbsp;&nbsp;
@@ -615,7 +615,7 @@
                     &nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label43" runat="server" Text="Nombre del Producto: "></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtNombreProductoDisipador" runat="server" Width="277px" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
+                <asp:TextBox ID="txtNombreProductoDisipador" onkeypress="return(event.charCode != 209 && event.charCode != 241 && event.charCode != 64)" runat="server" Width="277px" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
                     <br />
                     <br />
                     &nbsp;&nbsp;
@@ -674,7 +674,7 @@
                     &nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label47" runat="server" Text="Nombre del Producto: "></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtNombreProductoGabinete" runat="server" Width="277px" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
+                <asp:TextBox ID="txtNombreProductoGabinete" onkeypress="return(event.charCode != 209 && event.charCode != 241)" runat="server" Width="277px" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
                     <br />
                     <br />
                     &nbsp;&nbsp;&nbsp;
@@ -781,7 +781,7 @@
                     &nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label49" runat="server" Text="Nombre del Producto: "></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtNombreProductoDisco" runat="server" Width="277px" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
+                <asp:TextBox ID="txtNombreProductoDisco" runat="server" Width="277px" onkeypress="return(event.charCode != 209 && event.charCode != 241 && event.charCode != 64)" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
                     <br />
                     <br />
                     &nbsp;&nbsp;
@@ -834,7 +834,7 @@
                     &nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label61" runat="server" Text="Nombre del Producto: "></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtNombreProductoEquipo" runat="server" Width="277px" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
+                <asp:TextBox ID="txtNombreProductoEquipo" runat="server" onkeypress="return(event.charCode != 209 && event.charCode != 241 && event.charCode != 64)" Width="277px" onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
                     <br />
                     <br />
                     &nbsp;&nbsp;&nbsp;

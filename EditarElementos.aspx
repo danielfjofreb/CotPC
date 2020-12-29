@@ -168,7 +168,7 @@
                               <table>
                                   <tr>
                                       <td class="auto-style1">ID Producto: </td>
-                                      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtBuscar" Enabled="false" runat="server" Width="264px" min="0" TextMode="Number"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                                      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtBuscar" Enabled="false" runat="server" Width="264px" min="0" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" TextMode="Number"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
                                       <td><asp:Button ID="btnBuscar" runat="server" Text="Buscar" Enabled="false" OnClick="btnBuscar_Click" CssClass="form-control" ValidateRequestMode="Enabled" ValidationGroup="validarBusqueda" /></td>
                                   </tr>
                                   <tr>
@@ -820,7 +820,7 @@ WHERE p.ID_Producto = cpu.idProd and p.ID_Producto = @idProd">
                             </tr>
                             <tr>
                                 <td class="auto-style1">Nombre del Producto : </td>
-                                <td><asp:TextBox ID="txtNombreProductoE" runat="server" Width="200"   onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
+                                <td><asp:TextBox ID="txtNombreProductoE" runat="server" Width="200" onkeypress="return(event.charCode != 209 && event.charCode != 241 && event.charCode != 64)"  onchange="sinEspacios(this.value, this.id)" required></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>

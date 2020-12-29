@@ -340,11 +340,11 @@
                                 <h3>Veamos que tenemos para ti!</h3>
                             </div>
                             
-                                <asp:Panel ID ="Panel4" runat="server" class="Ir">
-                                    <asp:Button ID="btnir" Text="Vamos!" runat="server" BackColor="#0098A2" Width="300px" Height="250px" BorderStyle="Double" BorderWidth="10px" style="border-radius:40.5px" OnClick="btnir_Click"/>
-                                </asp:Panel>
+                               <asp:Panel ID ="Panel4" runat="server" class="Ir">
+                                 <asp:Button ID="btnir" Text="Vamos!" runat="server" BackColor="#0098A2" Width="300px" Height="250px" BorderStyle="Double" BorderWidth="10px" style="border-radius:40.5px" OnClick="btnir_Click"/>
+                               </asp:Panel>
                             </div>
-            </div>
+                 </div>
       </section>
 
 
