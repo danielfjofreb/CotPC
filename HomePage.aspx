@@ -317,7 +317,7 @@
                             
                                 <asp:Panel ID ="Panel2" runat="server" style="margin-top: 113%;margin-left: 70%;width: 117%;color:azure;">
                                     <h4>Valor (en pesos chilenos)</h4>
-                                    <asp:TextBox ID="txtPresupuesto" runat="server" TextMode="Number" Text="0"  min="0" style="width: 146%;font-size: x-large;font-family: -webkit-body; color:black" AutoPostBack="True" OnTextChanged="txtPresupuesto_TextChanged"></asp:TextBox>
+                                    <asp:TextBox ID="txtPresupuesto" runat="server" TextMode="Number"  min="0" style="width: 146%;font-size: x-large;font-family: -webkit-body; color:black" AutoPostBack="True" OnTextChanged="txtPresupuesto_TextChanged"></asp:TextBox>
                                     <div style="position:absolute;width: 48%; top: 110%;left: 95%;">
                                         <p style="color:darkgray;">* Si asi lo prefiere, puede dejar en 0 para ver todo el catálogo de equipos, con las especificaciones anteriores, si es que eligió alguna</p>
                                     </div>

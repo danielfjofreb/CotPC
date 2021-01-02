@@ -433,51 +433,58 @@ namespace CotPc
 
         protected void btnEditarE_Click(object sender, EventArgs e)
         {
-            lblIDEquipo.Text = (GVEquipos.Rows[0].FindControl("lblIDProductoGV") as Label).Text;
-            txtNombreProductoE.Text = (GVEquipos.Rows[0].FindControl("lblNombreProd") as Label).Text;
-            ddlProcesadorE.DataBind();
-            ddlProcesadorE.Items.Insert(0, new ListItem("---Seleccione---", ""));
-            ddlProcesadorE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblProcesadorE") as Label).Text;
-            ddlPlacaE.DataBind();
-            ddlPlacaE.Items.Insert(0, new ListItem("---Seleccione---", ""));
-            if (!ddlProcesadorE.SelectedValue.Equals(""))
+            try
             {
-                ddlPlacaE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblPlacaGV") as Label).Text;
+                lblIDEquipo.Text = (GVEquipos.Rows[0].FindControl("lblIDProductoGV") as Label).Text;
+                txtNombreProductoE.Text = (GVEquipos.Rows[0].FindControl("lblNombreProd") as Label).Text;
+                ddlProcesadorE.DataBind();
+                ddlProcesadorE.Items.Insert(0, new ListItem("---Seleccione---", ""));
+                ddlProcesadorE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblProcesadorE") as Label).Text;
+                ddlPlacaE.DataBind();
+                ddlPlacaE.Items.Insert(0, new ListItem("---Seleccione---", ""));
+                if (!ddlProcesadorE.SelectedValue.Equals(""))
+                {
+                    ddlPlacaE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblPlacaGV") as Label).Text;
+                }
+                ddlRAME.DataBind();
+                ddlRAME.Items.Insert(0, new ListItem("---Seleccione---", ""));
+                if (!ddlPlacaE.SelectedValue.Equals(""))
+                {
+                    ddlRAME.SelectedValue = (GVEquipos.Rows[0].FindControl("lblRAMGV") as Label).Text;
+                }
+                ddlDisipadorE.DataBind();
+                ddlDisipadorE.Items.Insert(0, new ListItem("---Seleccione---", ""));
+                if (!ddlProcesadorE.SelectedValue.Equals(""))
+                {
+                    ddlDisipadorE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblDisipadorGV") as Label).Text;
+                }
+                ddlGPUE.DataBind();
+                ddlGPUE.Items.Insert(0, new ListItem("---Seleccione---", ""));
+                ddlGPUE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblGPUGV") as Label).Text;
+                ddlPSUE.DataBind();
+                ddlPSUE.Items.Insert(0, new ListItem("---Seleccione---", ""));
+                if (!ddlProcesadorE.SelectedValue.Equals("") && !ddlGPUE.SelectedValue.Equals(""))
+                {
+                    ddlPSUE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblPSUGV") as Label).Text;
+                }
+                ddlDiscoDuroE.DataBind();
+                ddlDiscoDuroE.Items.Insert(0, new ListItem("---Seleccione---", ""));
+                ddlDiscoDuroE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblDiscoGV") as Label).Text;
+                ddlGabineteE.DataBind();
+                ddlGabineteE.Items.Insert(0, new ListItem("---Seleccione---", ""));
+                if (!ddlGPUE.SelectedValue.Equals("") && !ddlDisipadorE.SelectedValue.Equals("") && !ddlPlacaE.SelectedValue.Equals(""))
+                {
+                    ddlGabineteE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblGabineteGV") as Label).Text;
+                }
+                ddlCategoriaE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblCategoriaGV") as Label).Text;
+                txtCaracteristicasAdicionalesE.Text = (GVEquipos.Rows[0].FindControl("lblCaracteristicasGV") as Label).Text;
+                txtPrecioE.Text = (GVEquipos.Rows[0].FindControl("lblPrecioGV") as Label).Text;
+                pnlActualizarEquipo.Visible = true;
             }
-            ddlRAME.DataBind();
-            ddlRAME.Items.Insert(0, new ListItem("---Seleccione---", ""));
-            if (!ddlPlacaE.SelectedValue.Equals(""))
+            catch(ArgumentOutOfRangeException a)
             {
-                ddlRAME.SelectedValue = (GVEquipos.Rows[0].FindControl("lblRAMGV") as Label).Text;
+                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "alert", "alert('Error al cargar el panel de actualización, puede que las listas desplegables tengan incoherencia de datos, comuniquese con el administrador de base de datos y presentele este problema: "+a+"')", true);
             }
-            ddlDisipadorE.DataBind();
-            ddlDisipadorE.Items.Insert(0, new ListItem("---Seleccione---", ""));
-            if (!ddlProcesadorE.SelectedValue.Equals(""))
-            {
-                ddlDisipadorE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblDisipadorGV") as Label).Text;
-            }
-            ddlGPUE.DataBind();
-            ddlGPUE.Items.Insert(0, new ListItem("---Seleccione---", ""));
-            ddlGPUE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblGPUGV") as Label).Text;
-            ddlPSUE.DataBind();
-            ddlPSUE.Items.Insert(0, new ListItem("---Seleccione---", ""));
-            if (!ddlProcesadorE.SelectedValue.Equals("") && !ddlGPUE.SelectedValue.Equals(""))
-            {
-                ddlPSUE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblPSUGV") as Label).Text;
-            }
-            ddlDiscoDuroE.DataBind();
-            ddlDiscoDuroE.Items.Insert(0, new ListItem("---Seleccione---", ""));
-            ddlDiscoDuroE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblDiscoGV") as Label).Text;
-            ddlGabineteE.DataBind();
-            ddlGabineteE.Items.Insert(0, new ListItem("---Seleccione---", ""));
-            if (!ddlGPUE.SelectedValue.Equals("") && !ddlDisipadorE.SelectedValue.Equals("") && !ddlPlacaE.SelectedValue.Equals(""))
-            {
-                ddlGabineteE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblGabineteGV") as Label).Text;
-            }
-            ddlCategoriaE.SelectedValue = (GVEquipos.Rows[0].FindControl("lblCategoriaGV") as Label).Text;
-            txtCaracteristicasAdicionalesE.Text = (GVEquipos.Rows[0].FindControl("lblCaracteristicasGV") as Label).Text;
-            txtPrecioE.Text = (GVEquipos.Rows[0].FindControl("lblPrecioGV") as Label).Text;
-            pnlActualizarEquipo.Visible = true;
         }
 
 
@@ -653,8 +660,8 @@ namespace CotPc
 
         protected void btnEliminarE_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 string id = GVEquipos.Rows[0].Cells[1].Text;
                 SqlDSEquipo.DeleteParameters["IDProd"].DefaultValue = id;
                 int i = SqlDSEquipo.Delete();
@@ -667,12 +674,12 @@ namespace CotPc
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "alert", "alert('Hubo un error al eliminar el producto, posiblemente ya ha sido borrado antes')", true);
                 }
                 refrescar();
-            }
+            /*}
             catch (SqlException ex)
             {
 
                 ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "alert", "alert('Se produjo un error al eliminar el producto: \n" + ex + "')", true);
-            }
+            }*/
         }
     }
 }

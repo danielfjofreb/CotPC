@@ -46,6 +46,7 @@ namespace CotPc
             pnlslide2.Visible = false;
             pnlLimpiarSeleccion1.Visible = true;
             categoria.Value = "Oficina";
+            this.Session["categoria"] = categoria.Value;
             lblSelecciónCategoria.Text = "* Uso: "+categoria.Value;
         }
 
@@ -63,6 +64,7 @@ namespace CotPc
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "window", "window.location='#slide3'", true);
             pnlslide2.Visible = false;
             categoria.Value = "Diseño/Producción";
+            this.Session["categoria"] = categoria.Value;
             pnlLimpiarSeleccion1.Visible = true;
             lblSelecciónCategoria.Text = "* Uso: "+categoria.Value;
         }
@@ -72,6 +74,7 @@ namespace CotPc
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "window", "window.location='#slide3'", true);
             pnlslide2.Visible = false;
             categoria.Value = "Gamer";
+            this.Session["categoria"] = categoria.Value;
             pnlLimpiarSeleccion1.Visible = true;
             lblSelecciónCategoria.Text = "* Uso: Jugar";
         }
@@ -82,6 +85,7 @@ namespace CotPc
             pnlslide2.Visible = true;
             pnlLimpiarSeleccion1.Visible = false;
             categoria.Value = "";
+            this.Session["categoria"] = categoria.Value;
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "window", "window.location='#slide2'", true);
         }
 
@@ -90,6 +94,7 @@ namespace CotPc
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "window", "window.location='#slide4'", true);
             procesador.Value = "AMD";
             lblPreferenciaPC.Text = "* Procesador de preferencia: "+procesador.Value;
+            this.Session["procesador"] = procesador.Value;
             pnlLimpiarSeleccion2.Visible = true;
             pnlslide3.Visible = false;
         }
@@ -100,6 +105,7 @@ namespace CotPc
             pnlLimpiarSeleccion2.Visible = false;
             procesador.Value = "";
             pnlslide3.Visible = true;
+            this.Session["procesador"] = procesador.Value;
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "window", "window.location='#slide3'", true);
         }
 
@@ -109,6 +115,13 @@ namespace CotPc
             {
                 Presupuesto.Value = int.Parse(txtPresupuesto.Text).ToString();
                 lblPresupuesto.Text = "* Presupuesto: $" + (Presupuesto.Value);
+                this.Session["presupuesto"] = Presupuesto.Value;
+            }
+            else if (txtPresupuesto.Text.Equals("0"))
+            {
+                Presupuesto.Value = "";
+                lblPresupuesto.Text = "";
+                this.Session["presupuesto"] = Presupuesto.Value;
             }
             else
             {
@@ -122,6 +135,17 @@ namespace CotPc
         {
             this.Session["categoria"] = categoria.Value;
             this.Session["procesador"] = procesador.Value;
+            if (!txtPresupuesto.Text.Equals("0") && !txtPresupuesto.Text.Equals(""))
+            {
+                Presupuesto.Value = int.Parse(txtPresupuesto.Text).ToString();
+                lblPresupuesto.Text = "* Presupuesto: $" + (Presupuesto.Value);
+            }
+            else if (txtPresupuesto.Text.Equals("0"))
+            {
+                Presupuesto.Value = "";
+                lblPresupuesto.Text = "";
+            }
+
             this.Session["presupuesto"] = (Presupuesto.Value);
             Response.Redirect("Comenzar.aspx");
         }
